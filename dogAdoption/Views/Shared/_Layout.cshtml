@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - dogAdoption</title>
+    <link rel="stylesheet" href="~/css/tailwind.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/dogAdoption.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+     <!-- nav -->
+        <header class="">
+            <div class="container mx-auto flex justify-around items-center py-5">
+                <h1 class="logo">AdoptMe</h1>
+                <ul class="flex items-center">
+                    <li class="font-serif text-2xl mr-8">
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="font-serif text-2xl mr-8">
+                        <a asp-controller="Dogs" asp-action="DogsLists">Dogs</a>
+                    </li>
+                    <li class="font-serif text-2xl mr-8">
+                        <a asp-controller="Contact" asp-action="Contact">Contact</a>
+                    </li>
+                    <li class="font-serif text-2xl">
+                        <a asp-controller="Home" asp-action="About">About</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <main>
+            @RenderBody();
+        </main>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

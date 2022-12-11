@@ -1,0 +1,111 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+img{
+  height: auto;
+  width: 100%;
+}
+
+.gallary{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.mainHome{
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("/images/one.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.mainHeader{
+  font-family:'Courier New', Courier, monospace;
+  font-size: 3.8rem;
+  font-weight: bold;
+}
+
+.whyadoption{
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aboutheader{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 3.5rem ;
+}
+
+.logo{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.whyadop{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.dogsheader{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.dogHeader{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 2rem;   
+}
+
+.dogsecond{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.5rem;   
+}
+
+.doglink{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: underline;   
+}
+
+.detailOne{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.5rem;   
+}
+
+.detailsheader{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 2rem; 
+}
+
+.tablefont{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.2rem; 
+}
+
+.adoptMe{
+  height: 60vh;
+  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("./images/fourp.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display:  flex;
+  flex-direction: column;
+  justify-content: center;
+}

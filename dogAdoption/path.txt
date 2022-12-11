@@ -1,0 +1,16 @@
+view dogs / view dog
+
+crud dogs-admin
+{
+    create dogs, view dogs, view dog, delete dog, update dog
+}
+
+adopt
+adopt admin
+
+
+customer admin
+
+search
+
+contact(send email)
