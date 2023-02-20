@@ -1,0 +1,29 @@
+@model dogAdoption.Models.AdoptionRequest;
+
+    <div class="">
+        <div class="container mx-auto max-w-3xl px-10 py-20">
+            <h1 class="detailsheader pb-4">Application-Details</h1>
+            <div class="pb-6">
+                <button class="font-sans text-xl bg-red-400 py-3 px-10 text-white">Application-Lists</button>
+            </div>
+
+            <form>
+                <div class="py-2 flex flex-col">
+                    <label asp-for="FirstName" class="font-serif text-xl"></label>
+                    <p class="w-full py-2 px-4 border-2 border-black">@Model.FirstName</p>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label asp-for="LastName" class="font-serif text-xl"></label>
+                    <p class="w-full py-2 px-4 border-2 border-black">@Model.LastName</p>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label asp-for="Adress" class="font-serif text-xl"></label>
+                    <p class="w-full py-2 px-4 border-2 border-black">@Model.Adress</p>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label asp-for="Email" class="font-serif text-xl"></label>
+                    <p class="w-full py-2 px-4 border-2 border-black">@Model.Email</p>
+                </div>
+            </form>
+        </div>
+    </div>

@@ -1,41 +1,49 @@
+@model dogAdoption.Models.AdoptionRequest;
+
+
 <div class="">
         <div class="container mx-auto max-w-3xl px-10 py-20">
             <h1 class="detailsheader"> AdoptMe</h1>
-            <form>
+            <form method="post">
+                <div asp-validation-summary="All" class="text-red-600"></div>
                 <div class="py-2 flex flex-col">
-                    <label for="" class="font-serif text-xl">Your-Name</label>
-                    <input type="text" class="w-full py-2 px-4 border-2 border-black">
+                    <label asp-for="FirstName" class="font-serif text-xl"></label>
+                    <input asp-for="FirstName" type="text" class="w-full py-2 px-4 border-2 border-black">
+                    <span asp-validation-for="FirstName" class="text-red-600"></span>
                 </div>
                 <div class="py-2 flex flex-col">
-                    <label for="" class="font-serif text-xl">Your-Email</label>
-                    <input type="text" class="w-full py-2 px-4 border-2 border-black">
+                    <label asp-for="LastName" class="font-serif text-xl"></label>
+                    <input asp-for="LastName" type="text" class="w-full py-2 px-4 border-2 border-black">
+                    <span asp-validation-for="LastName" class="text-red-600"></span>
                 </div>
                 <div class="py-2 flex flex-col">
-                    <label for="" class="font-serif text-xl">Your-Address</label>
-                    <input type="text" class="w-full py-2 px-4 border-2 border-black">
+                    <label asp-for="Adress" class="font-serif text-xl"></label>
+                    <input asp-for="Adress" type="text" class="w-full py-2 px-4 border-2 border-black">
+                    <span asp-validation-for="Adress" class="text-red-600"></span>
                 </div>
                 <div class="py-2 flex flex-col">
-                    <label for="" class="font-serif text-xl">Collection-Date</label>
-                    <input type="date" class="w-full py-2 px-4 border-2 border-black">
+                    <label asp-for="Email" class="font-serif text-xl"></label>
+                    <input asp-for="Email" type="email" class="w-full py-2 px-4 border-2 border-black">
+                    <span asp-validation-for="Email" class="text-red-600"></span>
                 </div>
                 <div class="py-2 flex grid gap-3 grid-cols-2">
                     <div class=" flex flex-col">
-                        <label for="" class="font-serif text-xl">Dog-name</label>
-                        <input type="text" disabled value="Remix" class="w-full py-2 px-4 border-2 border-green-700">
+                        <label asp-for="dog.Name" class="font-serif text-xl"></label>
+                        <input asp-for="dog.Name" type="text" disabled value="Remix" class="w-full py-2 px-4 border-2 border-green-700">
                     </div>
                     <div class=" flex flex-col">
-                        <label for="" class="font-serif text-xl">Dog-age</label>
-                        <input type="text" disabled value="2" class="w-full py-2 px-4 border-2 border-green-700">
+                        <label asp-for="dog.Age" class="font-serif text-xl"></label>
+                        <input asp-for="dog.Age" type="text" disabled value="2" class="w-full py-2 px-4 border-2 border-green-700">
                     </div>
                 </div>
                 <div class="py-2 flex grid gap-3 grid-cols-2">
                     <div class=" flex flex-col">
-                        <label for="" class="font-serif text-xl">Dog-color</label>
-                        <input type="text" disabled value="blue" class="w-full py-2 px-4 border-2 border-green-700">
+                        <label asp-for="dog.Color" class="font-serif text-xl"></label>
+                        <input asp-for="dog.Color" type="text" disabled value="blue" class="w-full py-2 px-4 border-2 border-green-700">
                     </div>
                     <div class=" flex flex-col">
-                        <label for="" class="font-serif text-xl">Dog-Sex</label>
-                        <input type="text" disabled value="Female" class="w-full py-2 px-4 border-2 border-green-700">
+                        <label asp-for="dog.EyesColor" class="font-serif text-xl"></label>
+                        <input asp-for="dog.EyesColor" type="text" disabled value="blue" class="w-full py-2 px-4 border-2 border-green-700">
                     </div>
                 </div>
                 <button class="font-sans text-xl bg-red-600 py-3 w-full text-white">Submit Request</button>

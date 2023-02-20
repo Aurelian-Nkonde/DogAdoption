@@ -1,0 +1,30 @@
+ 
+ @model dogAdoption.Models.Dog;
+
+
+ <div class="">
+        <div class="container mx-auto max-w-3xl px-10 py-20">
+            <h1 class="detailsheader pb-5">@Model.Name details..</h1>
+            
+            <div class="pb-5">
+                <button class="font-serif text-white text-xl bg-green-600 py-3 px-10 shadow-xl">
+                    <a asp-action="Adopt" asp-controller="AdoptionRequest" asp-route-id="@Model.Id">Adopt</a>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-2">
+                <div class="">
+                    <img src="/images/five.jpg" alt="" class="w-auto">
+                </div>
+                <div class="pl-5">
+                    <p class="detailOne pb-2">Name: @Model.Name</p>
+                    <p class="detailOne pb-2">Age: @Model.Age years</p>
+                    <p class="detailOne pb-2">Eyes-Color: @Model.EyesColor</p>/
+                    <p class="detailOne pb-2">Color: @Model.Color</p>
+                    <p class="detailOne pb-2">Health: @Model.HealthCondition</p>
+                    <p class="detailOne pb-2">Disability: @Model.Disability</p>
+                    <p class="detailOne pb-2">TrainedLevel: @Model.TrainedLevel</p>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using dogAdoption.Models;
 using dogAdoption.Data;
 
+
 namespace dogAdoption.Controllers;
 
 public class DogsController : Controller

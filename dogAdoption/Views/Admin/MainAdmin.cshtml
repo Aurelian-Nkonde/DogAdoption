@@ -3,11 +3,17 @@
             <h1 class="aboutheader pb-6">Admin-Penel</h1>
 
             <div class="pb-5">
-                <button class="font-sans text-xl bg-red-400 py-3 px-10 text-white">Add-new-Dog</button>
+                <button class="font-sans text-xl bg-red-400 py-3 px-10 text-white">
+                     <a asp-action="createDog" asp-controller="DogsAdmin">Add-new-Dog</a>
+                </button>
             </div>
             <div class="flex gap-5 pb-5">
-                <button class="font-sans text-xl bg-black py-4 px-10 shadow-xl text-white">DogsMenu</button>
-                <button class="font-sans text-xl bg-black py-4 shadow-xl px-10 text-white">AdoptionMenu</button>
+                <button  class="font-sans text-xl bg-black py-4 px-10 shadow-xl text-white">
+                    <a asp-action="adminDog" asp-controller="dogsAdmin">DogsMenu</a>
+                </button>
+                <button  class="font-sans text-xl bg-black py-4 shadow-xl px-10 text-white">
+                    <a asp-action="AdoptionRequestsAdmin" asp-controller="adoptionAdmin">AdoptionMenu</a>
+                </button>
             </div>
 
            

@@ -35,7 +35,15 @@ public class DogsAdminController : Controller
     {
         if(ModelState.IsValid)
         {
-            var checkingIfDogExists = await _databaseContext.dogs.FindAsync(dataInput.Name);
+            List<Dog> allDogs = await _databaseContext.dogs.ToListAsync();
+            foreach(var dog in allDogs)
+            {
+                if(dog.Name == dataInput.Name)
+                {
+                    return BadRequest("Dog with same name exists in the database");
+                }
+            }
+            var checkingIfDogExists = await _databaseContext.dogs.FindAsync(dataInput.Id);
             if(checkingIfDogExists == null)
             {
 
@@ -61,10 +69,10 @@ public class DogsAdminController : Controller
     }
 
 
-    [HttpDelete]
-    public async Task<IActionResult> deleteDog(int id)
+    [HttpPost]
+    public async Task<IActionResult> deleteDog(int? id)
     {
-        if (id == 0 )
+        if (id == 0 && id == null)
         {
             return BadRequest();
         }
@@ -79,16 +87,23 @@ public class DogsAdminController : Controller
     }
 
 
-    [HttpPut]
+    [HttpGet]
     public async Task<IActionResult> updateDog(int id)
     {
-        if (id == 0 ) { return BadRequest(); }
-        var findDog = await _databaseContext.dogs.FindAsync(id);
-        if (findDog == null)
+        var dog = await _databaseContext.dogs.FindAsync(id);
+        if(dog == null)
         {
-            return NotFound();
+            return BadRequest();
         }
-        _databaseContext.Entry(findDog).State = EntityState.Modified;
+        return View(dog);
+    }
+
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> updateDog(Dog dogInput)
+    {
+        _databaseContext.Entry(dogInput).State = EntityState.Modified;
         await _databaseContext.SaveChangesAsync();
         return RedirectToAction(nameof(adminDog));
 

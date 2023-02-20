@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace dogAdoption.Models
 {
@@ -25,12 +26,11 @@ namespace dogAdoption.Models
         [Required(ErrorMessage = "health-condition is required")]
         public string? HealthCondition{get;set;}
         [Required(ErrorMessage = "disability is required")]
-        public bool Disability{get;set;}
+        public bool? Disability{get;set;}
         [Required(ErrorMessage = "trained-level is required")]
-        [MinLength(2)]
         [MaxLength(200)]
         public string? TrainedLevel{get;set;}
-        public bool adopted { get;set; }
-        public IEnumerable<AdoptionRequest>? adoptionRequest { get;set; }
+        public bool? adopted { get;set; }
+        public IEnumerable<AdoptionRequest>? adoptionRequests{get;set;}
     }
 }

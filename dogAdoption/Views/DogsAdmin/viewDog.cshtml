@@ -1,0 +1,40 @@
+
+@model dogAdoption.Models.Dog;
+
+<div class="">
+        <div class="container mx-auto max-w-3xl px-10 py-20">
+            <h1 class="detailsheader">@Model.Name Dog-Details</h1>
+
+            @* return to dashboard button *@
+            <form>
+                <div class="py-2 flex flex-col">
+                    <label for="" class="font-serif text-xl">Name</label>
+                    <div  class="w-full py-2 px-4 border-2 border-black">@Model.Name</div>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label for="" class="font-serif text-xl">Age</label>
+                     <div  class="w-full py-2 px-4 border-2 border-black">@Model.Age</div>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label for="" class="font-serif text-xl">Color</label>
+                     <div  class="w-full py-2 px-4 border-2 border-black">@Model.Color</div>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label for="" class="font-serif text-xl">Eyes-color</label>
+                     <div  class="w-full py-2 px-4 border-2 border-black">@Model.EyesColor</div>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label for="" class="font-serif text-xl">HealthCondition</label>
+                     <div  class="w-full py-2 px-4 border-2 border-black">@Model.HealthCondition</div>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label for="" class="font-serif text-xl">Disability</label>
+                     <div  class="w-full py-2 px-4 border-2 border-black">@Model.Disability</div>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label for="" class="font-serif text-xl">TrainedLevel</label>
+                     <div  class="w-full py-2 px-4 border-2 border-black">@Model.TrainedLevel</div>
+                </div>
+            </form>
+        </div>
+    </div>

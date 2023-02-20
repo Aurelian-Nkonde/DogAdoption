@@ -14,22 +14,24 @@ public class AdoptionRequestController : Controller
     }
 
 
-    public IActionResult Adopt()
+    public async Task<IActionResult> Adopt(int? id)
     {
+        // asking  if the user is sure on adopting a dog
+        var dog = await _databaseContext.dogs.FindAsync(id);
+        if(dog == null){ return NotFound(); }
         return View();
     }
 
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> adopt(AdoptionRequest userRequest)
+    public async Task<ActionResult>  Adopt([FromForm] AdoptionRequest request)
     {
         if(ModelState.IsValid)
         {
-            _databaseContext.adoptionRequests.Add(userRequest);
+            await _databaseContext.adoptionRequests.AddAsync(request);
             await _databaseContext.SaveChangesAsync();
-            RedirectToAction(nameof(Adopt)); //should redirect to dogs controller
+            return RedirectToAction("DogsLists", "Dogs");
         }
-        return View(nameof(Adopt));
+        return View();
     }
 }

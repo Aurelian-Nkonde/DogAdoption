@@ -1,0 +1,49 @@
+@model dogAdoption.Models.Dog;
+
+<div class="">
+        <div class="container mx-auto max-w-3xl px-10 py-20">
+            <h1 class="detailsheader">Update-Dog</h1>
+            <form method="post" >
+                <div asp-validation-summary="All" class="text-red-700"></div>
+                <div class="py-2 flex flex-col">
+                    <label asp-for="Name" class="font-serif text-xl"></label>
+                    <input asp-for="Name" type="text" class="w-full py-2 px-4 border-2 border-black">
+                    <span asp-validation-for="Name" class="text-red-700"></span>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label asp-for="Age" class="font-serif text-xl"></label>
+                    <input asp-for="Age" type="number" class="w-full py-2 px-4 border-2 border-black">
+                    <span asp-validation-for="Age" class="text-red-700"></span>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label asp-for="Color" class="font-serif text-xl"></label>
+                    <input asp-for="Color" type="text" class="w-full py-2 px-4 border-2 border-black">
+                    <span asp-validation-for="Color" class="text-red-700"></span>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label asp-for="HealthCondition" class="font-serif text-xl"></label>
+                    <input type="text" asp-for="HealthCondition" class="w-full py-2 px-4 border-2 border-black">
+                    <span asp-validation-for="HealthCondition"></span>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label asp-for="EyesColor" class="font-serif text-xl"></label>
+                    <input asp-for="EyesColor" type="text" class="w-full py-2 px-4 border-2 border-black">
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label asp-for="Disability" class="font-serif text-xl"></label>
+                    <input type="text" asp-for="Disability" class="w-full py-2 px-4 border-2 border-black">
+                   <span asp-asp-validation-for="Disability"></span>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <label asp-for="TrainedLevel" class="font-serif text-xl"></label>
+                    <input type="text" asp-for="TrainedLevel" class="w-full py-2 px-4 border-2 border-black">
+                    <span asp-validation-for="TrainedLevel"></span>
+                </div>
+                <button type="submit" class="font-sans text-xl bg-red-600 py-3 w-full text-white">Update Dog</button>
+            </form>
+        </div>
+    </div>
+
+@section Scripts{
+    @{ <partial name="_ValidationScriptsPartial" /> }
+}

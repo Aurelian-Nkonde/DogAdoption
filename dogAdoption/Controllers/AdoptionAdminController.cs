@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using dogAdoption.Models;
 using dogAdoption.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace dogAdoption.Controllers;
 
@@ -13,17 +14,18 @@ public class AdoptionAdminController : Controller
         _databaseContext = appDbContext;
     }
 
-    public IActionResult AdoptionRequestsAdmin() //displays pending
+    public async Task<IActionResult> AdoptionRequestsAdmin() //displays pending
     {
-        var requests = _databaseContext.adoptionRequests.ToList();
-        var pendingRequests = from request in requests
+        var requests = await _databaseContext.adoptionRequests.ToListAsync();
+        IEnumerable<AdoptionRequest> pendingRequests = from request in requests
                             where request.Accepted != true && request.Accepted != false
                             select request;
         return View(pendingRequests);
     }
 
 
-    public async Task<IActionResult> AdoptionRequestDetail(int id)
+    [HttpGet]
+    public async Task<IActionResult> requestDetail(int? id)
     {
         if(id == 0){ return NotFound(); }
         var request = await _databaseContext.adoptionRequests.FindAsync(id);
@@ -35,9 +37,9 @@ public class AdoptionAdminController : Controller
     }
 
 
-    public IActionResult AdoptionAcceptedRequests()
+    public async Task<IActionResult> AdoptionAcceptedRequests()
     {
-        var requests = _databaseContext.adoptionRequests.ToList();
+        var requests = await _databaseContext.adoptionRequests.ToListAsync();
         IEnumerable<AdoptionRequest> accepted = from request in requests
                             where request.Accepted == true
                             select request;
@@ -55,6 +57,7 @@ public class AdoptionAdminController : Controller
     }
 
 
+    [HttpPost]
     public async Task<IActionResult> acceptAdoption(int id)
     {
         if(id ==0 ){ return NotFound(); }
@@ -68,8 +71,8 @@ public class AdoptionAdminController : Controller
 
         // change the dog to adopted true
 
-        var ids = request.dog;
-        var getDogWithSameId = _databaseContext.dogs.Find(ids.Id);
+        var ids = request.dog?.Id;
+        var getDogWithSameId = await _databaseContext.dogs.FindAsync(ids);
         if(getDogWithSameId == null){ return BadRequest(); }
         getDogWithSameId.adopted = true;
         // request.dog.adopted = true;
@@ -77,6 +80,8 @@ public class AdoptionAdminController : Controller
         return RedirectToAction(nameof(AdoptionAcceptedRequests));
     }
 
+
+    [HttpPost]
     public async Task<IActionResult> declineAdoption(int id)
     {
         if (id ==0 ){ return BadRequest(); }

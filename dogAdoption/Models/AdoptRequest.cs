@@ -18,13 +18,13 @@ namespace dogAdoption.Models
         [Required(ErrorMessage = "city is required")]
         [MinLength(2)]
         [MaxLength(200)]
-        public string? City{get;set;}
+        public string? Adress{get;set;}
         [Required(ErrorMessage = "email is required")]
         [DataType(DataType.EmailAddress)]
         [MinLength(2)]
         [MaxLength(200)]
         public string? Email{get;set;}
-        public bool Accepted { get;set; }
+        public bool? Accepted { get;set; }
         public Dog? dog { get;set; }
     }
 }

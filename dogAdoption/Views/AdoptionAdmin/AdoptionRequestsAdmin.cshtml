@@ -1,15 +1,28 @@
+
+@model IEnumerable<dogAdoption.Models.AdoptionRequest>;
+
  <div class="">
         <div class="container mx-auto max-w-6xl px-10 py-20">
-            <h1 class="aboutheader pb-6">Admin-Panel-Adoptions</h1>
+              <h1 class="aboutheader pb-6">
+                <a asp-action="MainAdmin" asp-controller="Admin">MainAdmin </a>
+            </h1>
+
 
             <div class="pb-5">
                 <h1 class="font-sans my-5 text-4xl bg-red-500 py-4 px-10">Adoption-Menu</h1>
             </div>
             <div class="pb-10">
-                <button class="font-sans text-xl bg-green-600 py-3 px-10 text-white">accepted-lists</button>
-                <button class="font-sans text-xl bg-red-600 py-3 px-10 text-white">rejected-lists</button>
+                <button class="font-sans text-xl bg-green-600 py-3 px-10 text-white">
+                    <a asp-action="AdoptionAcceptedRequests" asp-controller="AdoptionAdmin">List_Of_Accepted_Adoptions</a>
+                </button>
+                <button class="font-sans text-xl bg-red-600 py-3 px-10 text-white">
+                    <a asp-action="AdoptionDeclinedRequests" asp-controller="AdoptionAdmin">List_Of_Rejected_Adoptions</a>
+                </button>
             </div>
 
+            @if (Model.Count() >= 1)
+            {
+                
             <h1 class="detailsheader pb-6">List of pending-applications</h1>
 
             <table class="table tablefont table-fixed w-full text-center ">
@@ -19,31 +32,36 @@
                         <th>FirstName</th>
                         <th>LastName</th>
                         <th>Email</th>
-                        <th>Dog</th>
                         <th>Option1</th>
                         <th>Option2</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach (var request in Model)
+                    {
                     <tr class="border-b-2 text-xl font-serif text-gray-700 border-red-600">
-                        <td class="py-4 ">1</td>
-                        <th class="underline">Thomas </th>
-                        <th>Further</th>
-                        <th>fur@gmail.com</th>
-                        <th>Rexim</th>
-                        <th><button class="bg-green-700 text-white text-xl py-2 px-4">Accept</button></th>
-                        <th><button class="bg-red-700 text-white text-xl py-2 px-4">Reject</button></th>
+                        <td class="py-4 ">@request.Id</td>
+                        <th class="underline">
+                            <a asp-action="requestDetail" asp-controller="adoptionAdmin" asp-route-id="@request.Id">@request.FirstName</a>
+                        </th>
+                        <th>@request.LastName</th>
+                        <th>@request.Email</th>
+                        <th><button class="bg-green-700 text-white text-xl py-2 px-4">
+                            <a asp-action="acceptAdoption" asp-controller=" AdoptionAdmin" asp-route-id="@request.Id">Accept</a>
+                        </button></th>
+                        <th><button class="bg-red-700 text-white text-xl py-2 px-4">
+                            <a asp-action="declineAdoption" asp-controller=" AdoptionAdmin" asp-route-id="@request.Id">Reject</a>
+                        </button></th>
                     </tr>
-                    <tr class="border-b-2 text-xl font-serif text-gray-700 border-red-600">
-                        <td class="py-4 ">3</td>
-                        <th class="underline">Thousand</th>
-                        <th>Further</th>
-                        <th>fur@gmail.com</th>
-                        <th>Gejo</th>
-                        <th><button class="bg-green-700 text-white text-xl py-2 px-4">Accept</button></th>
-                        <th><button class="bg-red-700 text-white text-xl py-2 px-4">Reject</button></th>
-                    </tr>
+                    }
+
                 </tbody>
             </table>
+            } 
+            else
+            {
+                <h1>The pending request lists is empty</h1>
+            }
+
         </div>
     </div>

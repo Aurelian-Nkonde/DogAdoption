@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using dogAdoption.Models;
+using System.Collections.Generic;
 
 namespace dogAdoption.Controllers;
 

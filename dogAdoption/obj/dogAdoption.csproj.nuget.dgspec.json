@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/run/media/aconte/MOSES/robot/projects/Zvigumwe/dog-Adoption-Application/dogAdoption/dogAdoption.csproj": {}
+    "/run/media/aconte/MOSES/robot/1Projects/Zvigumwe/dog-Adoption-Application/dogAdoption/dogAdoption.csproj": {}
   },
   "projects": {
-    "/run/media/aconte/MOSES/robot/projects/Zvigumwe/dog-Adoption-Application/dogAdoption/dogAdoption.csproj": {
+    "/run/media/aconte/MOSES/robot/1Projects/Zvigumwe/dog-Adoption-Application/dogAdoption/dogAdoption.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/run/media/aconte/MOSES/robot/projects/Zvigumwe/dog-Adoption-Application/dogAdoption/dogAdoption.csproj",
+        "projectUniqueName": "/run/media/aconte/MOSES/robot/1Projects/Zvigumwe/dog-Adoption-Application/dogAdoption/dogAdoption.csproj",
         "projectName": "dogAdoption",
-        "projectPath": "/run/media/aconte/MOSES/robot/projects/Zvigumwe/dog-Adoption-Application/dogAdoption/dogAdoption.csproj",
+        "projectPath": "/run/media/aconte/MOSES/robot/1Projects/Zvigumwe/dog-Adoption-Application/dogAdoption/dogAdoption.csproj",
         "packagesPath": "/home/aconte/.nuget/packages/",
-        "outputPath": "/run/media/aconte/MOSES/robot/projects/Zvigumwe/dog-Adoption-Application/dogAdoption/obj/",
+        "outputPath": "/run/media/aconte/MOSES/robot/1Projects/Zvigumwe/dog-Adoption-Application/dogAdoption/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/aconte/.nuget/NuGet/NuGet.Config"
@@ -38,9 +38,25 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.12, )"
+            },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[6.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.12, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[6.0.8, )"
             }
           },
           "imports": [
@@ -61,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.109/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.113/RuntimeIdentifierGraph.json"
         }
       }
     }

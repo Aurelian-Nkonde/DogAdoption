@@ -1,16 +1,6 @@
-view dogs / view dog
-
-crud dogs-admin
-{
-    create dogs, view dogs, view dog, delete dog, update dog
-}
-
-adopt
-adopt admin
-
-
-customer admin
-
-search
-
-contact(send email)
+dog admin crud 
+    delete 
+adoption admin crud 
+    request detail
+   accept request
+   reject request
